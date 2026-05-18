@@ -31,6 +31,6 @@ FROM streamers2024
 GROUP BY language 
 ORDER BY COUNT(*) DESC 
 LIMIT 5;
-
+```
 ##
 Źródło bazy danych: https://www.kaggle.com/datasets/hibrahimag1/top-1000-twitch-streamers-data-may-2024
