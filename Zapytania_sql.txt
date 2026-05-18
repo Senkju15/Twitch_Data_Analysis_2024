@@ -1,0 +1,49 @@
+Przykładowe zapytania SQL:
+1.Kto ma średnio najwięcej widzów na streamie? 
+SELECT name, avg_viewers_per_stream 
+FROM streamers2024 
+ORDER BY avg_viewers_per_stream DESC 
+LIMIT 10;
+##################################################################
+2.Jakie gry są najczęściej "głównymi grami" streamerów? (Top 5)
+SELECT most_streamed_game, COUNT(*) as liczba_streamerow 
+FROM streamers2024 
+GROUP BY most_streamed_game 
+ORDER BY liczba_streamerow DESC 
+LIMIT 5
+;
+##################################################################
+
+3.W jakie dni streamerzy najczęściej odpalają transmisje?
+SELECT most_active_day, COUNT(*) as liczba_kanalow 
+FROM streamers2024 
+GROUP BY most_active_day 
+ORDER BY liczba_kanalow DESC;
+
+################################################################
+4.Kto zdobywa najwięcej followersów na jednym streamie? (Top 5 najszybciej rosnących)
+SELECT name, followers_gained_per_stream 
+FROM streamers2024 
+ORDER BY followers_gained_per_stream DESC 
+LIMIT 5;
+###############################################################
+5.Jaki jest średni czas trwania streama w zależności od języka? (Top 10 języków)
+SELECT language, ROUND(AVG(average_stream_duration), 2) as sredni_czas_godziny
+FROM streamers2024 
+GROUP BY language 
+ORDER BY COUNT(*) DESC 
+LIMIT 10;
+##############################################################
+6.Suma wszystkich wyświetleń (total views) dla top 5 kanałów?
+SELECT name, total_views 
+FROM streamers2024 
+ORDER BY total_views DESC 
+LIMIT 5;
+#################################################################
+7.Ile jest poszczególnych "typów" streamerów?
+SELECT type, COUNT(*) as liczba 
+FROM streamers2024 
+GROUP BY type;
+
+
+
